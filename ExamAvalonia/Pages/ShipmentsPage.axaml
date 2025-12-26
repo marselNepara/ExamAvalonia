@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="ExamAvalonia.Pages.ShipmentsPage"
+             FontFamily="Segoe UI">
+    <StackPanel Margin="10" Spacing="10">
+
+        <TextBlock Text="Shipments Management" FontSize="16" FontWeight="Bold"/>
+
+        <StackPanel Orientation="Horizontal" Spacing="10">
+            <Button Content="Add Shipment" Click="AddShipment_Click" HorizontalAlignment="Center"/>
+            <DatePicker x:Name="DateFilter" SelectedDateChanged="DateFilter_SelectedDateChanged"/>
+            <ComboBox x:Name="WarehouseFilter" SelectionChanged="WarehouseFilter_SelectionChanged" Width="200" DisplayMemberBinding="{Binding Name}"/>
+            <Button Content="Reset Filters" Click="ResetFilters_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="ShipmentsGrid" AutoGenerateColumns="False" Height="400">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="#" Binding="{Binding RowNumber}" Width="40"/>
+                <DataGridTextColumn Header="Warehouse" Binding="{Binding WarehouseName}" Width="*"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding ShipmentDate}" Width="120"/>
+                <DataGridTextColumn Header="Recipient" Binding="{Binding Recipient}" Width="*"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
+                <DataGridTemplateColumn Header="Actions" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Spacing="5">
+                                <Button Content="Edit" Click="EditShipment_Click" Tag="{Binding}"/>
+                                <Button Content="Delete" Click="DeleteShipment_Click" Tag="{Binding}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,115 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ExamAvalonia.Pages.WarehousesAndZones">
+<Grid ColumnDefinitions="1*, 1*"
+          RowDefinitions="Auto, *"
+          Margin="10">
+
+        <TextBlock Grid.ColumnSpan="2"
+                   Text="Warehouses and Storage Zones"
+                   FontSize="24"
+                   Margin="0 0 0 10"/>
+
+        <Grid Grid.Row="1"
+              Grid.Column="0"
+              RowDefinitions="Auto Auto *"
+              Margin="0 0 10 0">
+
+            <StackPanel Orientation="Horizontal"
+                        Spacing="10">
+                <TextBox x:Name="WarehouseSearchBox"
+                         Width="200"
+                         Watermark="Search warehouse"
+                         TextChanged="WarehouseSearchBox_TextChanged"/>
+
+                <Button Content="Add warehouse"
+                        Click="AddWarehouse_Click"/>
+            </StackPanel>
+
+            <DataGrid x:Name="WarehousesGrid"
+                      Grid.Row="2"
+                      AutoGenerateColumns="False"
+                      SelectionChanged="WarehousesGrid_SelectionChanged"
+                      IsReadOnly="True">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID"
+                                        Binding="{Binding WarehouseId}"
+                                        Width="60"/>
+                    <DataGridTextColumn Header="Name"
+                                        Binding="{Binding Name}"
+                                        Width="*"/>
+                    <DataGridTextColumn Header="Address"
+                                        Binding="{Binding Address}"
+                                        Width="*"/>
+
+                    <DataGridTemplateColumn Header="Actions"
+                                            Width="150">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal"
+                                            Spacing="5">
+                                    <Button Content="Edit"
+                                            Click="EditWarehouse_Click"/>
+                                    <Button Content="Delete"
+                                            Click="DeleteWarehouse_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <Grid Grid.Row="1"
+              Grid.Column="1"
+              RowDefinitions="Auto *">
+
+            <StackPanel Orientation="Horizontal"
+                        Spacing="10">
+                <TextBlock Text="Storage zones"
+                           FontSize="18"/>
+
+                <Button Content="Add zone"
+                        Click="AddZone_Click"/>
+            </StackPanel>
+
+            <DataGrid x:Name="ZonesGrid"
+                      Grid.Row="1"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID"
+                                        Binding="{Binding ZoneId}"
+                                        Width="60"/>
+                    <DataGridTextColumn Header="Code"
+                                        Binding="{Binding ZoneCode}"
+                                        Width="*"/>
+                    <DataGridTextColumn Header="Description"
+                                        Binding="{Binding Description}"
+                                        Width="*"/>
+
+                    <DataGridTemplateColumn Header="Actions"
+                                            Width="150">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal"
+                                            Spacing="5">
+                                    <Button Content="Edit"
+                                            Click="EditZone_Click"/>
+                                    <Button Content="Delete"
+                                            Click="DeleteZone_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+    </Grid>
+</UserControl>

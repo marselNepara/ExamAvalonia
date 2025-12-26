@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ExamAvalonia.Windows.AddEditDeliveryWindow"
+        Width="600" Height="700"
+        WindowStartupLocation="CenterScreen"
+        Title="Delivery">
+
+    <StackPanel Margin="20" Spacing="10">
+
+        <TextBlock Text="Supplier*" />
+        <ComboBox x:Name="SupplierBox" Width="300" DisplayMemberBinding="{Binding Name}"/>
+
+        <TextBlock Text="Warehouse*" />
+        <ComboBox x:Name="WarehouseBox"  Width="300" DisplayMemberBinding="{Binding Name}" />
+
+        <TextBlock Text="Delivery Date*" />
+        <DatePicker x:Name="DeliveryDatePicker"/>
+
+        <TextBlock Text="Status*" />
+        <TextBox x:Name="StatusBox"/>
+
+        <TextBlock Text="Delivery Items"/>
+        <DataGrid x:Name="ItemsGrid" AutoGenerateColumns="False" Height="200">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Product" Binding="{Binding ProductName}" Width="*"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="100"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding PurchasePrice}" Width="100"/>
+                <DataGridTemplateColumn Header="Actions" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Click="DeleteItem_Click" Tag="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Content="Add Item" Click="AddItem_Click" Width="100" Margin="0,5,0,0"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="10">
+            <Button Content="Save" Click="Save_Click"/>
+            <Button Content="Cancel" Click="Cancel_Click"/>
+        </StackPanel>
+
+    </StackPanel>
+</Window>

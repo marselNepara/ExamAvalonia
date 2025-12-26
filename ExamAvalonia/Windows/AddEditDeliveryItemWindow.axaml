@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ExamAvalonia.Windows.AddEditDeliveryItemWindow"
+        Width="400" Height="350"
+        WindowStartupLocation="CenterOwner"
+        Title="Add Delivery Item">
+
+    <StackPanel Margin="20" Spacing="10">
+
+        <!-- Product -->
+        <TextBlock Text="Product *"/>
+        <ComboBox x:Name="ProductBox">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <!-- Quantity -->
+        <TextBlock Text="Quantity *"/>
+        <NumericUpDown x:Name="QuantityBox" Minimum="1" Maximum="100000" Value="1"/>
+
+        <!-- Purchase Price -->
+        <TextBlock Text="Purchase Price *"/>
+        <NumericUpDown x:Name="PriceBox" Minimum="0" Maximum="1000000" Increment="0.01" FormatString="F2" Value="0"/>
+
+        <!-- Buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10" Margin="0,20,0,0">
+            <Button Content="OK" Click="Ok_Click"/>
+            <Button Content="Cancel" Click="Cancel_Click"/>
+        </StackPanel>
+
+    </StackPanel>
+</Window>

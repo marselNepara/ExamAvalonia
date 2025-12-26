@@ -1,0 +1,78 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="500"
+        d:DesignHeight="420"
+        x:Class="ExamAvalonia.Windows.AddAndEditProducts"
+        Title="Product">
+
+    <Grid RowDefinitions="Auto, *, Auto"
+          Margin="15">
+
+        <TextBlock x:Name="TitleText"
+                   Text="Add product"
+                   FontSize="22"
+                   Margin="0 0 0 15"/>
+
+        <Grid Grid.Row="1"
+              RowDefinitions="Auto Auto Auto Auto Auto Auto"
+              ColumnDefinitions="150 *"
+              RowSpacing="10"
+              ColumnSpacing="10">
+
+            <TextBlock Text="Name:"/>
+            <TextBox x:Name="NameBox"
+                     Grid.Column="1"/>
+
+            <TextBlock Text="Category:"
+                       Grid.Row="1"/>
+            <ComboBox x:Name="CategoryBox"
+                      Grid.Row="1"
+                      Grid.Column="1">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBlock Text="Article:"
+                       Grid.Row="2"/>
+            <TextBox x:Name="ArticleBox"
+                     Grid.Row="2"
+                     Grid.Column="1"/>
+
+            <TextBlock Text="Unit:"
+                       Grid.Row="3"/>
+            <TextBox x:Name="UnitBox"
+                     Grid.Row="3"
+                     Grid.Column="1"/>
+
+            <TextBlock Text="Min stock:"
+                       Grid.Row="4"/>
+            <NumericUpDown x:Name="MinStockBox"
+                           Grid.Row="4"
+                           Grid.Column="1"
+                           Minimum="0"/>
+
+        </Grid>
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Spacing="10"
+                    Margin="0 15 0 0">
+
+            <Button Content="Save"
+                    Width="100"
+                    Click="Save_Click"/>
+
+            <Button Content="Cancel"
+                    Width="100"
+                    Click="Cancel_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

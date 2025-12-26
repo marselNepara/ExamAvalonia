@@ -1,0 +1,39 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="ExamAvalonia.Pages.DeliveriesPage"
+             Margin="20">
+
+    <StackPanel Spacing="10">
+
+        <TextBlock Text="Deliveries" Classes="header"/>
+
+        <StackPanel Orientation="Horizontal" Spacing="10">
+            <Button Content="Add delivery" Click="AddDelivery_Click"/>
+            <TextBox x:Name="SearchBox" Width="250" Watermark="Search by supplier..." TextChanged="SearchBox_TextChanged"/>
+            <DatePicker x:Name="DateFilter" SelectedDateChanged="DateFilter_SelectedDateChanged"/>
+            <Button Content="Reset filters" Click="ResetFilters_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="DeliveriesGrid" AutoGenerateColumns="False" Height="500">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="#" Binding="{Binding RowNumber}" Width="50"/>
+                <DataGridTextColumn Header="Delivery ID" Binding="{Binding DeliveryId}" Width="100"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding DeliveryDate}" Width="150"/>
+                <DataGridTextColumn Header="Supplier" Binding="{Binding SupplierName}" Width="*"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="150"/>
+                <DataGridTemplateColumn Header="Actions" Width="250">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="View Items" Click="ViewItems_Click" Tag="{Binding}"/>
+                                <Button Content="Edit" Click="EditDelivery_Click" Tag="{Binding}"/>
+                                <Button Content="Delete" Click="DeleteDelivery_Click" Tag="{Binding}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </StackPanel>
+</UserControl>

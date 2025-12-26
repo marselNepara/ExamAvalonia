@@ -1,0 +1,34 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ExamAvalonia.Windows.AddEditShipmentWindow"
+        Width="400" Height="350"
+        WindowStartupLocation="CenterScreen"
+        Title="Shipment">
+
+    <StackPanel Margin="20" Spacing="10">
+
+        <TextBlock Text="Warehouse*" />
+        <ComboBox x:Name="WarehouseBox">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock Text="Shipment Date*" />
+        <DatePicker x:Name="ShipmentDatePicker"/>
+
+        <TextBlock Text="Recipient*" />
+        <TextBox x:Name="RecipientBox"/>
+
+        <TextBlock Text="Status*" />
+        <TextBox x:Name="StatusBox"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="10">
+            <Button Content="Save" Click="Save_Click"/>
+            <Button Content="Cancel" Click="Cancel_Click"/>
+        </StackPanel>
+
+    </StackPanel>
+</Window>

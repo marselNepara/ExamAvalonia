@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ExamAvalonia.SideBar">
+    <Grid>
+        <Border Padding="15">
+		    <StackPanel Orientation="Vertical" Spacing="15">
+                <Button Content="Products" Name="Products" Click="Products_Click"/>
+                <Button Content="Warehouses" Name="Warehouses" Click="Warehouses_Click"/>
+                <Button Content="Suppliers" Name="Suppliers" Click="Suppliers_Click"/>
+                <Button Content="Deliveries" Name="Deliveries" Click="Deliveries_Click"/>
+                <Button Content="Shipments" Name="Shipments" Click="Shipments_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
