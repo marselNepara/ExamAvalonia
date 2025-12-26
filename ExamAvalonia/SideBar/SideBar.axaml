@@ -6,12 +6,12 @@
              x:Class="ExamAvalonia.SideBar">
     <Grid>
         <Border Padding="15">
-		    <StackPanel Orientation="Vertical" Spacing="15">
-                <Button Content="Products" Name="Products" Click="Products_Click"/>
-                <Button Content="Warehouses" Name="Warehouses" Click="Warehouses_Click"/>
-                <Button Content="Suppliers" Name="Suppliers" Click="Suppliers_Click"/>
-                <Button Content="Deliveries" Name="Deliveries" Click="Deliveries_Click"/>
-                <Button Content="Shipments" Name="Shipments" Click="Shipments_Click"/>
+            <StackPanel Orientation="Vertical" Spacing="15">
+                <Button Content="Products" Name="ProductsBtn" Click="Products_Click"/>
+                <Button Content="Warehouses" Name="WarehousesBtn" Click="Warehouses_Click"/>
+                <Button Content="Suppliers" Name="SuppliersBtn" Click="Suppliers_Click"/>
+                <Button Content="Deliveries" Name="DeliveriesBtn" Click="Deliveries_Click"/>
+                <Button Content="Shipments" Name="ShipmentsBtn" Click="Shipments_Click"/>
             </StackPanel>
         </Border>
     </Grid>
